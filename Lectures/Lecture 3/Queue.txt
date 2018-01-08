@@ -1,0 +1,30 @@
+Queue ADT:
+
+- A collections of objects/values
+- Ordered by insertion order
+- Operations: enqueue (insert at rear). Dequeue (remove from top)
+- FIFI
+
+
+Queue Applications:
+
+- Ubiquitous where a Limited "resource" is shared by multiple "clients" or most handle asynchrounous requests.
+
+- Simple example: "Round-Robin Scheduling" for sharing a resource.
+	1. Enqueue all jobs on Queue.
+	2. Repeat { y = Q.dequeue
+		    - service job y
+		    - Q.enqueue(y)
+		   }
+
+
+Example: Recognizing Palindromes
+
+- Palindromes "a" "abba"
+- Algorithm: 1. Push all tokens, in order, onto both a queue and a stack
+	     2. Remove pairs of tokens, checking for equality. 
+
+
+- Not the best solution though. 
+
+
