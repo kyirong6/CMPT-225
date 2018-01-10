@@ -1,0 +1,18 @@
+"Applicatio" Example Problem
+
+	- Given: Finite streams A,B of positive ints
+	- Output: The smallest element in A that is not in B, or "None" if every element in A is in B.
+
+
+A "naive" algorithm, using a queue: 
+	1. read all elements from B, storing them in a queue Q.
+	2. read elements of A one by one
+		- keep track of the smallest one seen so far that is not in B (call it m)
+		- for each element of A:
+			if it is smaller than m:
+				check if it is in Q (by "rotating" Q), and if not, update m
+	3. report m or None, as appropriate.
+
+
+Ex.) Write pseudo-code detailed enough to code.
+	- what is the time complexity?

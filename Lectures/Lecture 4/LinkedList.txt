@@ -1,0 +1,16 @@
+Linked Lists
+
+- A sequence of simple objects (nodes), each storing one ...(plus a link..), linked together m a chain.
+
+- Eg. to store the list <3,5,7>
+	- [3] --> [5] --> [7]
+
+- These objects have no names, (in contrast to declared variables)
+	- we access them by following Links
+		- in Java, references (implemented as pointers)
+		- in c++, pointers
+
+
+
+
+Eg. Implement a stack with a linked list

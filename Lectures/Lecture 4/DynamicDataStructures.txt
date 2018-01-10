@@ -1,0 +1,13 @@
+Dynamic Data Structures
+
+- Basic types (ints, chars, bool, ...) and arrays of these, store a fixed amount of data.
+
+- We want implementations of ADTs like stacks + queues to grow and shrink as needed.
+	- eg. vector, arraylist, string classes
+
+- Basic Idea:
+	- store data in a collection of (simple) objects
+	- add/delete as needed
+	- link them all together to make the main object.
+
+
