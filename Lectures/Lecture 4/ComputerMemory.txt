@@ -1,0 +1,36 @@
+Computer Memory
+
+- A sequence of locations
+- Each location has an address
+	- addresses are 0,1,...
+	- typically written in hexadecimal
+- Each location stores a byte of data
+	-code is data too
+
+*Naive models of memory. Just enough for this class.*
+
+
+Memory Allocation (on a running system)
+
+- memory is allocated to processes "as needed", according to some scheme.
+	[ ] |
+	[ ]	| } <---- code + data
+	[ ] |
+	[ ] |} <----- free memory.. 
+	[ ] |
+	[ ]
+	[ ]
+	[ ]
+
+
+Variables and Memory
+
+- A variable is (roughly) a named and typed collection of bytes allocated accordingly for its type.
+
+- So, at run time, each variable has an address in memory
+- In c,c++, we can
+	- access the address of a variable
+	- access a variable or memory location by its address
+	- declare variables for storing addresses (pointers)
+
+*study up on addresses and pointers in c++ 
