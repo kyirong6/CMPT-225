@@ -1,0 +1,5 @@
+Implementing Dynamic Data Structures:
+
+- need methods for creating and accessing nodes and links
+- nodes are objects
+- links are pointers
