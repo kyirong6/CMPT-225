@@ -1,0 +1,10 @@
+Linked List Based Stack
+-----------------------
+
+Has variables:
+	- top: pointer to first element
+	- n: size
+
+Need a Node class:
+	Has variables: data - stores a value on the stack.
+	next - a pointer to the next node.
