@@ -1,0 +1,86 @@
+Basic Types on Call Stack and Heap:
+----------------------------------
+
+
+f() {
+
+    int n;
+    n = 6;
+    int * p;
+    p = new int;
+    *p = 7;
+
+    cout << n << endl;
+    cout << p << endl;
+    cout << *p << endl;
+}
+
+
+call stack: some space for f(), n=6,*p will be allocated. inside of p will be a address pointing to the heap where 7 is allocated.
+
+Heap: some space for "new int" will be allocated. then 7 will be stored there.
+
+n will be 6
+p will be an address 
+*p will be 7
+
+
+
+Objects (instances of classes) on Stack and Heap:
+------------------------------------------------
+
+Consider: class C { public: 
+			int x;
+			void set(int y) {x = y;}
+			int get() {return x;}
+		  }
+
+
+--------------------------------------------------------
+
+f() {
+
+	C c1;
+	c1.set(5);
+	y = c1.get();
+
+	C * c2;
+	c2 = new C;
+	c * c3;
+	c3 = new C;
+}
+
+--------------------------------------------------------
+
+
+Call Stack: some space is allocated for c1 with a variable x also allocated. Also space for c2 and c3 is allocated. c2 and c3 hold addresses that point to the heap.
+
+
+
+Heap: an instance of C (c2) is allocated memory along with its x variable. As well as an instancec of C (c3).
+
+
+--------------------------------------------------------
+
+
+
+Accessing Objects on the Heap
+-----------------------------
+
+- Same class C
+
+f2() {
+	C * c3 = new C;
+	c3->set(5);				// c3 is just a pointer, not an object. it does not have object abilities. cannot do "*c3.set(6)" because multiplication. 
+	y = c3.get();				// can also use (*c3).set(5); but thats lame.
+
+
+
+}
+
+
+
+Stack: c3 in which an address is stored poiting to the heap.
+
+
+Heap: the instance of C for c3 is stored along with its x variable. Then x gets set to 5.
