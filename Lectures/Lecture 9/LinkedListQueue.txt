@@ -1,0 +1,17 @@
+Implementing a Queue with a Linked List
+----------------------------------------
+
+Consider: 
+
+	[][] -> [][] -> [][] -> [][]
+
+	* Easy to insert or remove the front
+	* More difficult to remove or insert the rear
+	* Can solve this by adding another pointer called: rear
+
+Dequeue steps:
+	1. Make a temo var to store value to return.
+	2. Make a temp var to store a pointer to the node for deletion.
+	3. Make front point to new front.
+	4. delete unused node.
+	5. return val.
