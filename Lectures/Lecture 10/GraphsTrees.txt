@@ -1,0 +1,24 @@
+Graphs and Trees:
+
+Graph: a pair G = <V,E>
+	* V is a set (called vertices or nodes)
+	* E is a set of pairs from V (called edges)
+
+Ex. G = {{1,2,3}, {(1,2), (3,2)}}
+
+G is directed - edges are ordered pairs
+G is undirected - edges are sets
+
+* our graphs are undirected by default.
+
+
+Path in G: sequence <v1,v2,...,vn> of vertices such that (v1,v2),...,(vn-1,vn)
+are edges of G.
+
+Length of path = # of edges
+
+Simple Path: all vertices are distinct. 
+
+Vertex t is reachable frmo vertex s if there is an s-t path <s,...,t>
+
+G is connected if for every pair u,v in V, u is reachable from v
