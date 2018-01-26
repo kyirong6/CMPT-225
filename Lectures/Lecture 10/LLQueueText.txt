@@ -1,0 +1,50 @@
+A linked list implementation of a Queue - Code Sketch for Dequeue
+
+
+Queue class variables:
+	* front (pointer to node)
+	* rear (pointer to a node)
+	* q_size
+
+<data_type> dequeue () {
+	<data_type> temp_val = front -> data
+	<node_type> temp_ptr = front
+	front = front -> next
+	delete temp_ptr
+	return temp_val	
+}
+
+Missting: update size
+Question: Is it correct if q_size = 1?
+	*correct
+
+
+Linked List Queue: Enqueue
+
+   Steps: 
+   		1.) make a new node with value
+   		2.) make the node with previous pointing to new node from 1 above ^
+   		3.) make rear point to it
+   		4.) increment size
+
+void Queue::enqueue(<data_type> x) {
+	rear->next = new <node_type>(x, NULL);
+	rear = rear->next;
+	q_size+=1;
+}
+
+Question: Does it work if i do an enqueue on an empty queue?
+	*no
+
+
+Traversing a Linked List:
+
+display_list() {
+	<node_type> * cursor = front;
+	while (cursor != NULL) {
+		cout << cursor->data << endl;
+		cursor = cursor->next;
+	}
+}
+
+Execise: add a display function to the L.L stack class from lectures
