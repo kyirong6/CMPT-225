@@ -22,3 +22,10 @@ Simple Path: all vertices are distinct.
 Vertex t is reachable frmo vertex s if there is an s-t path <s,...,t>
 
 G is connected if for every pair u,v in V, u is reachable from v
+
+Cycle in G: a path <v0,...vn> where <v0,...,vn-1> is a simple path and vn = v0. (a path that comes back to itself)
+
+Tree: a connected graph with no cycles.
+	* Fact: ever n-vertex tree has n-1 edges.
+
+Rooted Tree: A tree with a distinguished vertex called the root.
