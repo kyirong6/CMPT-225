@@ -1,0 +1,78 @@
+Priority Queue ADT
+------------------
+
+* stores a collection of objects with priorities.
+	* priorities from any ordered set.
+	* for simplicity, we use {0,1,2...} with 0 the highest priority.
+	
+* Has operations:
+	* insert (item, priority)
+	* extract_min()
+	* update (item, priority)
+
+
+Naive P.Q Implementaitons
+-------------------------
+
+* unordered array or LL
+	* O(n) for extract_min
+
+* ordered array or LL
+	* insert is O(n)
+
+
+We will use a Rooted Binary Tree Instead
+----------------------------------------
+
+* Binary: every node has <= 2 children.
+
+* 2 children: left, right. (they are ordered)
+
+* Proper Binary Tree: every node has 0 or 2 children
+
+* Perfect Binary Tree: a proper Binary Tree where every leaf has the same depth.
+
+			*
+		   / \
+		  *   *
+		 /\  / \
+        * * *   *
+
+* Complete Binary Tree:
+	* every level, except perhaps the deepest, is "full"
+	* nodes at the deepest level are "as far left as possible"
+
+
+
+Binary Heap Data Structure
+--------------------------
+
+* A complete binary tree  ]- "shape invariant"
+
+* with vertices labelled by keys from some ordered set, s.t key(v) >= key(parent(v)) ]- "order invariant"
+
+
+- This is our Data Structure for implementing Priority Queues.
+
+
+Heap Insertion
+--------------
+
+* Need to add a vertex to the tree which has a very restricted shape.
+	* But, the tree is only partially ordered.
+	* so.....
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
