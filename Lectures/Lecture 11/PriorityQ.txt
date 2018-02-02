@@ -32,17 +32,11 @@ We will use a Rooted Binary Tree Instead
 
 * Perfect Binary Tree: a proper Binary Tree where every leaf has the same depth.
 
-			*
-		   / \
-		  *   *
-		 /\  / \
-        * * *   *
-
 * Complete Binary Tree:
 	* every level, except perhaps the deepest, is "full"
 	* nodes at the deepest level are "as far left as possible"
 
-
+ 
 
 Binary Heap Data Structure
 --------------------------
@@ -59,8 +53,41 @@ Heap Insertion
 --------------
 
 * Need to add a vertex to the tree which has a very restricted shape.
-	* But, the tree is only partially ordered.
-	* so.....
+	* But, the tree is only partially ordered: there is no "right place" to insert a value.
+	* To insert a new key into heap H:
+		1. Create a new node v with key(v)
+		2. Add v as a new leaf, maintaining the shape invariant.
+		3. Re-establish the order invariant, using the procedure: 
+		
+			trickle_up(v) {
+				while (v is not root AND key(v) < key(parent(v))) {
+					swap v and parent(v)
+				}
+			}
+
+
+Heap Removal (Extract_min):
+
+	* min. key is at root: remove it
+	* fix the shape by moving the "bottom right" leaf to the root
+	* Then repair the order invariant. - using a trickle_down procedure
+
+		trickle_down() {
+			v <- root
+			while (v has a child c with key(c) < key(v)) {
+				c <- child of v with min. key among the children of v
+				swap v with c
+			}
+		}	
+
+
+Rooted Tree Depth and Height.
+			-----     ------
+	* Depth of a node v in tree T:
+		- length of path from root of T to v.
+	* Height of node v in tree T:
+		- length of the longest path from v to a descendent of v in T. (all leaves have a height of 0)
+	* Height of T = height of its root  = depth of its lowest leaf (max depth)
 
 
 
@@ -70,9 +97,4 @@ Heap Insertion
 
 
 
-
-
-
-
-
-
+		
