@@ -1,0 +1,33 @@
+ASSIGNMENT 2
+------------
+
+1) Memory Leaks
+	a) deletion: when we remove an element from a linked list, we can get memory leaks if we don't delete the node.
+
+	b) destructors:
+		* constructors: called on creation of an instance.
+		* destructors: called on deletion of an instance.
+			* the destructors job is to delete all dynamic memory allocated for that instance.
+			* for ex. traverse the linked list, deleting nodes as you go.
+	c) shallow & deep copies:
+		* LinkedList t;
+		* Linked List s = t; // this is a shallow copy. s now points to the nodes at t;
+		* traverse the list from t, making copies of each node.
+		* Copy Constructors: 
+			* s = t; // s becomes an alias for t
+			* class stack {
+				...
+				Stack() {
+					top = NULL;
+					size = -1;
+				}
+				
+				Stack(const Stack& t) {
+					...
+					top = t.top;
+					size = t.size;
+				}
+			}
+			 * s = new Stack(t); // this is a shallow copy using the constructor from above. s is only pointing to the nodes of t
+			 * A copy constructor that makes a deep copy must traverse the kist, making copies of each node.
+			 

@@ -1,0 +1,15 @@
+Cor: Every complete binary tree with n nodes has height at most log(n)
+
+Pf: We have that 2^h <= n.
+	Taking log both sides: log2^h <= log(n)
+							or h <= log(n)
+
+
+Cor: Heap insert & extract_min both have time complexity O(logn)
+
+Pf: Time is some constant times # of comparisons & swaps, which are both <= c*h < c*log(n)
+
+# elements n
+time for 1 operation: ceiling(log(n))
+time for n operations: n*ceiling(log(n))
+time for n operations using a naive implementation (array): n^2

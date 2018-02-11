@@ -38,7 +38,7 @@ We will use a Rooted Binary Tree Instead
 
  
 
-Binary Heap Data Structure
+Binary Heap Data Structure (Min Heap)
 --------------------------
 
 * A complete binary tree  ]- "shape invariant"
@@ -88,13 +88,4 @@ Rooted Tree Depth and Height.
 	* Height of node v in tree T:
 		- length of the longest path from v to a descendent of v in T. (all leaves have a height of 0)
 	* Height of T = height of its root  = depth of its lowest leaf (max depth)
-
-
-
-
-
-
-
-
-
 		
