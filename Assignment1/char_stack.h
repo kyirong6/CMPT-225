@@ -14,5 +14,7 @@ class char_stack
     int size();
 
   private:
-    // fill this in.
+    static const int capacity = 250000;
+    char array[capacity];
+    int top_index;
 };
