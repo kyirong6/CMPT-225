@@ -5,7 +5,6 @@ using namespace std;
 
 // function declarations
 void add_to_stack(char character, char_stack &stack_ref);
-void print_stack(char_stack &stack_ref);
 string error_string_of_spaces(string line, int i);
 
 
@@ -65,10 +64,7 @@ int main() {
 }
 
 
-
-
 // ---------------------------functions----------------------------
-
 void add_to_stack(char character, char_stack &stack_ref) {
 	stack_ref.push(character);
 }
@@ -78,7 +74,6 @@ void print_stack(char_stack &stack_ref) {
 		cout << stack_ref.pop() << endl;
 	}
 }
-
 
 string error_string_of_spaces(string line, int i) {
 	string message = "";
