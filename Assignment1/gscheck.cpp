@@ -69,12 +69,6 @@ void add_to_stack(char character, char_stack &stack_ref) {
 	stack_ref.push(character);
 }
 
-void print_stack(char_stack &stack_ref) {
-	while (!stack_ref.empty()) {
-		cout << stack_ref.pop() << endl;
-	}
-}
-
 string error_string_of_spaces(string line, int i) {
 	string message = "";
 	for (int q=1; q<i; q++) {
