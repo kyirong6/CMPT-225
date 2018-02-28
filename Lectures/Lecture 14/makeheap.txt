@@ -1,0 +1,16 @@
+Making a heap out of a binary tree:
+-----------------------------------
+
+pseudo:
+
+make_heap(T) {
+	for i = floor(n/2) - 1 down to 0 
+		trickle_down(i)
+}
+
+We bound the number of swaps by:
+	#swaps <= sum from d=0 to h-1: 2^d(h-d)
+			  -------------------
+--------------^ this is a range of depths at which we do trickledowns
+-----------------------------------^ 2^d is the # of trickle_downs at depth d
+----------------------------------------^ h-d is the max number of swaps for a node at depth d

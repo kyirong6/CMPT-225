@@ -1,0 +1,39 @@
+// trickle up
+insert (key) {
+	A[n] = key // A is an array, size is n;
+	i = n;
+	while (i<0 AND A[i] < A[(i-1)/2]) {
+		swap A[i] and A[(i-1)/2]
+		i = (i-1)/2
+	}
+	n = n + 1;
+}
+
+
+//Extract-min
+
+* uses extra array space to:
+	* minimize # of comparisons
+	* simplify code
+
+* Need size 2n+1 array for heaps of n
+
+
+extract_min() {
+	temp = A[0]; 
+	n = n-1;
+	A[0] = A[n]; 
+	A[n] = "infinity, very large valueu"
+
+	i = 0
+	while (A[i] > A[2i+1] or A[i] > A[2i+2]) {
+		if (A[2i+2] > A[2i+1]) {
+			swap A[i] and A[2i+1]
+			i = 2i+1;
+		} else {
+			swap A[i] and A[2i+2]
+			i = 2i+2
+		}
+	}
+	return temp;
+}
