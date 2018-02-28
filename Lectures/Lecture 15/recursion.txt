@@ -1,0 +1,21 @@
+Recursion
+---------
+A definition of a function is recursive if its body contains an application of itself.
+
+For example:
+
+S(n) {
+	if n = 0
+		return 0
+	else
+		return n + S(n-1)
+}
+
+Consider recursion on a list
+----------------------------
+Assume a list ADT with:
+	* L.empty() - return true iff L is empty
+	* L.first() - returns the first element
+	* L.rest() - returns everything except first element
+
+Recursion Examples
