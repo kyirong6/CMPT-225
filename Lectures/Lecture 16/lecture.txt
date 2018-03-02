@@ -1,0 +1,24 @@
+Let T(n) = the worst case time for heap insert 
+	= max time for H.insert(i) with |H| <= n.
+
+T(n) = O(logn), means
+	* for some x > 0 and c > 0
+		* for every n>x, T(n) = clog(n).
+
+or 
+
+for some x>0 and c>0
+	* for every n > x
+		* for every H, i with |H| <= n
+			time for H.insert(i) <= clog(n).
+-----------------------------------------------
+
+T(n) = omega(logn) means
+	* log(n) = O(T(n))
+	or 
+	* for some x > 0 and c > 0
+		* for every n > x, log(n) <= c*T(n)
+	or
+	* for some x>0 and c>0
+		* for every n>x
+			* there is some H,i with |H| <= n s.t log(n)/c <= H.insert(i)
