@@ -1,0 +1,40 @@
+Recursion on Binary Trees - By Example
+--------------------------------------
+The height of a node v in a binary tree may be defined by: h(v) = { 0 if v is a leaf
+																  { 1 + max { height(left(v)),
+																  	 		{ height(right(v))
+
+Turning the def'n into pseudo-code:
+-----------------------------------
+height(v) {
+	if v is a leaf:
+		return 0
+	if v has one child n:
+		return 1 + height(n)
+	else:
+		return 1 + max(height(left(n)), height(right(n)))
+}
+
+
+Traversals of Binary Trees
+--------------------------
+A traversal of a graph is a process that "visits" each node in the graph once.
+
+- we consider 4 standard examples:
+	1. level order
+	2. pre-order
+	3. in-order
+	4. post-order
+
+- 2,3,4: begin at the root & recursively visit all nodes in the left subtree, the right subtree, & the root.
+		- They differ in the relative order in which you do those 3 things
+
+
+Tree Traversals
+----------------
+pre_order_T(v) {
+	visit v
+	pre_order_T(left(v))
+	pre_order_T(right(v))
+}
+// Notice: all nodes in left subtree are visited before any node in the right subtree.

@@ -39,3 +39,8 @@ fib(n) {
 	else 
 		return fib(n-1) + fib(n-2)
 }
+
+
+Fib(n) = { 0 if n=0
+		 { 1 if n=1
+		 { fib(n-1) + fib(n-2)
