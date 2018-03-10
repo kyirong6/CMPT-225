@@ -57,11 +57,11 @@ class Deque {
        public:
            node(int new_data, node * prev_node, node * next_node ){
               data = new_data ;
-	      prev = prev_node ;
+	     	  prev = prev_node ;
               next = next_node ;
            }
            int data ;
-	   node * prev ;// pointer to pevious node, or NULL.
+	  	   node * prev ;// pointer to pevious node, or NULL.
            node * next ;// pointer to next node, or NULL.
     };
 
