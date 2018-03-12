@@ -3,7 +3,7 @@
  * Header file for simple doubly-linked list implemention 
  * of a Deque with a cursor, for Assignment 2.
  *
- * /
+ * */
  
 class Deque {
 
@@ -23,6 +23,7 @@ class Deque {
         // Pre: Deque is not empty.
     int pop_right();  // removes item on right end.
         // Pre: Deque is not empty.
+    void delete_all();
 
     /* Size functions */
     bool empty();  // Returns true iff the Deque contains no items.
@@ -52,22 +53,22 @@ class Deque {
 
   private:
     // Deque Node Class 
-    class node  // node type for the linked list 
+    class Node  // node type for the linked list 
     {
        public:
-           node(int new_data, node * prev_node, node * next_node ){
+           Node(int new_data, Node * prev_node, Node * next_node ){
               data = new_data ;
 	     	  prev = prev_node ;
               next = next_node ;
            }
            int data ;
-	  	   node * prev ;// pointer to pevious node, or NULL.
-           node * next ;// pointer to next node, or NULL.
+	  	   Node * prev ;// pointer to pevious node, or NULL.
+           Node * next ;// pointer to next node, or NULL.
     };
 
     /* Instance Variables */
-    node * left_p ; // Points to left end node, or NULL if Deque is empty.
-    node * rear_p ; // Points to right end node, or NULL if Deque is empty.
+    Node * left_p ; // Points to left end node, or NULL if Deque is empty.
+    Node * rear_p ; // Points to right end node, or NULL if Deque is empty.
     int current_size ; // current number of elements in the queue.
-    node * cursor ; // pointer to "current" node (or NULL if deque is empty).
+    Node * cursor ; // pointer to "current" node (or NULL if deque is empty).
 };
