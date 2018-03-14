@@ -98,10 +98,10 @@ int Deque::pop_left() {
 		return val;
 	} else {
 		left_p->prev->next = NULL;
-		if (cursor == left_p)
+		left_p = left_p->prev;
+		if (cursor == tmp)
 			cursor = left_p;
 	}
-	left_p = left_p->prev;
 	delete tmp;
 	current_size--;	
 	return val;
@@ -118,10 +118,10 @@ int Deque::pop_right() {
 		return val;
 	} else {
 		rear_p->next->prev = NULL;
-		if (cursor == rear_p)
-			cursor = rear_p->next;
+		rear_p = rear_p->next;
+		if (cursor == tmp)
+			cursor = rear_p;
 	}
-	rear_p = rear_p->next;
 	delete tmp;
 	current_size--;
 	return val;
@@ -168,3 +168,25 @@ int Deque::peek_right() {
 int Deque::get_cursor() {
 	return cursor->data;
 }
+
+void Deque::set_cursor(int i) {
+	set_cursor->data = i;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

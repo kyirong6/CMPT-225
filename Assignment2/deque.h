@@ -45,6 +45,8 @@ class Deque {
         // Pre: Deque is not empty.
     int get_cursor(); // Return value the cursor currently is at, 
         // Pre: Deque is not empty.
+    void set_cursor(int i);    
+            // Pre: Deque is not empty.
 
     /* Utility functions */
     void display(); // prints a depiction of the deque contents to standard output.    
