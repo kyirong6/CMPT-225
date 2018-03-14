@@ -173,7 +173,26 @@ void Deque::set_cursor(int i) {
 	set_cursor->data = i;
 }
 
+void Deque::display() {
+	if (empty()) {
+		cout << "Empty!" << endl;
+	} else {
+		Node * tmp = left_p;
+		while (tmp->prev != NULL) {
+			cout << "[" << tmp->data << "], " << endl;
+			tmp = tmp->prev;
+		}
+		cout << "[" << tmp->data << "]" << endl;
+	}
+}
 
+void Deque::verbose_display() {
+	if (empty()) {
+		cout << "Empty!" << endl;
+	} else {
+		
+	}
+}
 
 
 
