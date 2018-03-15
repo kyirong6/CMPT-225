@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 #include "deque.h"
 using namespace std;
 
@@ -66,8 +67,8 @@ void Deque::push_left(int item) {
 		rear_p = node;
 		cursor = left_p;
 	} else {
-		Node *new_left = new Node(item, left_p, NULL);
-		left_p->next = new_left;
+		Node *new_left = new Node(item, NULL, left_p);
+		left_p->prev = new_left;
 		left_p = new_left;
 	}
 	current_size++;
@@ -80,8 +81,8 @@ void Deque::push_right(int item) {
 		rear_p = node;
 		cursor = rear_p;
 	} else {
-		Node *new_rear = new Node(item, NULL, rear_p);
-		rear_p->prev = new_rear;
+		Node *new_rear = new Node(item, rear_p, NULL);
+		rear_p->next = new_rear;
 		rear_p = new_rear;
 	}
 	current_size++;
@@ -91,14 +92,16 @@ int Deque::pop_left() {
 	Node *tmp = left_p;
 	int val = left_p->data;
 	// there is only one element in deque
-	if ((left_p->next == NULL) & (left_p->prev == NULL)) {
-		left_p = rear_p = cursor = NULL;
+	if ((left_p->prev == NULL) & (left_p->next == NULL)) {
+		left_p = NULL;
+		rear_p = NULL;
+		cursor = NULL;
 		delete tmp;
 		current_size--;
 		return val;
 	} else {
-		left_p->prev->next = NULL;
-		left_p = left_p->prev;
+		left_p->next->prev = NULL;
+		left_p = left_p->next;
 		if (cursor == tmp)
 			cursor = left_p;
 	}
@@ -112,13 +115,15 @@ int Deque::pop_right() {
 	int val = rear_p->data;
 	//there is only one element in deque
 	if ((left_p->next == NULL) & (left_p->prev == NULL)) {
-		left_p = rear_p = cursor = NULL;
+		left_p = NULL;
+		rear_p = NULL;
+		cursor = NULL;
 		delete tmp;
 		current_size--;
 		return val;
 	} else {
-		rear_p->next->prev = NULL;
-		rear_p = rear_p->next;
+		rear_p->prev->next = NULL;
+		rear_p = rear_p->prev;
 		if (cursor == tmp)
 			cursor = rear_p;
 	}
@@ -138,22 +143,24 @@ bool Deque::empty() {
 }
 
 bool Deque::cursor_left() {
-	if (empty())
-		return false;
-	else if(cursor->next == NULL) {
+	if (empty()) {
 		return false;
 	}
-	cursor = cursor->next;
-	return true;
-}
-
-bool Deque::cursor_right() {
-	if (empty())
-		return false;
 	else if(cursor->prev == NULL) {
 		return false;
 	}
 	cursor = cursor->prev;
+	return true;
+}
+
+bool Deque::cursor_right() {
+	if (empty()) {
+		return false;
+	}
+	else if(cursor->next == NULL) {
+		return false;
+	}
+	cursor = cursor->next;
 	return true;
 }
 
@@ -170,20 +177,68 @@ int Deque::get_cursor() {
 }
 
 void Deque::set_cursor(int i) {
-	set_cursor->data = i;
+	cursor->data = i;
 }
 
 void Deque::display() {
-	if (empty()) {
-		cout << "Empty!" << endl;
-	} else {
-		Node * tmp = left_p;
-		while (tmp->prev != NULL) {
-			cout << "[" << tmp->data << "], " << endl;
-			tmp = tmp->prev;
-		}
-		cout << "[" << tmp->data << "]" << endl;
+
+	Node * tmp = left_p;
+
+	if (tmp == NULL) {
+		cout << "[] size=0, cursor=NULL." << endl;
+		delete tmp;
+		return;
 	}
+
+	else {
+		string output = "[";
+		while ((tmp != NULL)) {
+			output += to_string(tmp->data);
+			output += ";";
+			tmp = tmp->next;
+		}
+		output += "]";
+		output += " size=";
+		output += to_string(current_size);
+		output += ",";
+		output += " cursor=";
+		output += to_string(cursor->data);
+		output += ".";
+		cout << output << endl;
+		delete tmp;
+		return;
+	}
+
+
+	return;
+
+	
+	
+
+	/*		
+	string output = "[";
+	if (tmp == NULL) {
+		output += ";]";
+		output += " size=0";
+		output += " cursor=NULL.";
+		cout << output << endl;
+		return;
+	}
+	
+	while ((tmp != NULL) || (tmp->prev != NULL)) {
+		output += tmp -> data;
+		output += "; ";
+		tmp = tmp->prev;
+	}
+	output += tmp -> data;
+	output += ";]" ;
+	output += " size=" ;
+	output += current_size;
+	output += " cursor=";
+	output += cursor->data; 
+	output += ".";
+	cout << output << endl;
+	*/
 }
 
 void Deque::verbose_display() {
