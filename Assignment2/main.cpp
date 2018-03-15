@@ -1,4 +1,4 @@
-/* Deque Test Program 1 */
+/* Deque Test Program 3 */
 #include <cstring>
 #include <iostream>
 #include "deque.h"
@@ -6,62 +6,29 @@
 using namespace std ;
 
 int main (int argc, char * const argv[]) {
-    cout << "\n\nDeque Class Test Program 1 - START\n\n";
+    cout << "\n\nDeque Class Test Program 3 - START\n\n";
 
     // Make a Deque
     Deque * dq1 = new Deque();
     dq1->display();
 
-    // Insert some elements from both ends.
+    // Insert some elements 
     dq1->push_left(1);
-    dq1->display();
-
-    dq1->push_right(101);
-    dq1->display();
-
-
-
     dq1->push_left(2);
-    dq1->display();
-
-    dq1->push_right(102);
-    dq1->display();
-
     dq1->push_left(3);
-    dq1->display();
-
-    dq1->push_right(103);
-    dq1->display();
-
     dq1->push_left(4);
+    dq1->push_left(5);
+    dq1->push_left(6);
+    dq1->push_left(7);
+    dq1->push_left(8);
     dq1->display();
+    // add 10 to each 
+    int i = 0 ;
+    do{
+        dq1->set_cursor( 10 + dq1->get_cursor());
+	dq1->display();
+    }while( dq1->cursor_left());
 
-    dq1->push_right(104);
-    dq1->display();
-
-    // Move the cursor right to the end
-    // Do move right more times to verify what happens.
-    dq1->cursor_right();
-    dq1->display();
-    dq1->cursor_right();
-    dq1->display();
-    dq1->cursor_right();
-    dq1->display();
-    dq1->cursor_right();
-    dq1->display();
-    dq1->cursor_right();
-    dq1->display();
-    dq1->cursor_right();
-    dq1->display();
-    dq1->cursor_right();
-    dq1->display();
-
-    // Move the cursor all the way to the left.
-    while( dq1->cursor_left() ){;}
-    dq1->display();
-
-    cout << "\n\nDeque Class Test Program 1 - DONE\n\n";
-
+    cout << "\n\nDeque Class Test Program 3 - DONE\n\n";
     return 0;
 }
-
