@@ -228,39 +228,10 @@ void Deque::verbose_display() {
 		while (tmp != NULL) {
 			cout << to_string(tmp->data) << ", node address: " << tmp << ", pointer value: " << tmp << "." << endl;
 			tmp = tmp->next;
-//			output += ", addres: ";
-//			output += tmp;
-//			output += ", pointer value: ";
-//			output += *tmp;
-//			output += ";";
 		}
 		cout << "---- rear ----" << endl;
 		cout << "size = " << to_string(current_size) << ", cursor = " << to_string(cursor->data) << endl;
-//		output += "]";
-//		output += " size=";
-//		output += to_string(current_size);
-//		output += ", ";
-//		output += "cursor=";
-//		output += to_string(cursor->data);
-//		output += ".";
-//		cout << output << endl;
 		delete tmp;
 		return;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
