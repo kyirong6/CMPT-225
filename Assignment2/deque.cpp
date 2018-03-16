@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstring>
-#include "deque.h"
+#include "Deque.h"
 using namespace std;
 
 Deque::Deque() {
@@ -44,7 +44,7 @@ Deque::Deque(const Deque& dq) {
 		cursor_right();
 		i--;
 	}
-	delete tmp;
+	delete tmp2;
 	return;
 }
 

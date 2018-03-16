@@ -1,7 +1,7 @@
 /* Deque Test Program 4 */
 #include <cstring>
 #include <iostream>
-#include "deque.h"
+#include "Deque.h"
 
 using namespace std ;
 
