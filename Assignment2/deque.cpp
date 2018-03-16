@@ -10,62 +10,71 @@ Deque::Deque() {
 	current_size = 0;
 }
 
-
 // need to implement this better.
 Deque::Deque(const Deque& dq) {
+	left_p = NULL;
+	rear_p = NULL;
+	cursor = NULL;
+	current_size = 0;
 	Node *tmp = dq.left_p;
-	left_p=NULL;
-	rear_p=NULL;
-	cursor=NULL;
-	current_size=0;
-	/*
-	if (current_size > 0) { 
-		delete_all();
-	} else {
-		left_p=NULL;
-		rear_p=NULL;
-		cursor=NULL;
-	}
-	*/
-	while (tmp->prev != NULL) {
+	while (tmp != NULL) {
 		push_right(tmp->data);
-		tmp = tmp->prev;
+		tmp = tmp->next;
 	}
-	push_right(tmp->data);
 	delete tmp;
+	Node * tmp2 = dq.cursor;
+	if (tmp2 == dq.left_p){
+		cursor = left_p;
+		delete tmp;
+		return;
+	}
+	if (tmp2 == dq.rear_p) {
+		cursor = rear_p;
+		delete tmp;
+		return;
+	}
+	int i = 0;
+	while (tmp2->prev!=NULL) {
+		tmp2 = tmp2->prev;	
+		i++;
+	}
+	cursor = left_p;
+	while (i > 0) {
+		tmp2 = tmp2->next;
+		cursor_right();
+		i--;
+	}
+	delete tmp;
+	return;
 }
 
 Deque::~Deque() {
-	cout << "good bye!" << endl;
+	delete_all();
 }
 
-/*
+
 void Deque::delete_all() {
 	Node *tmp = left_p;
-	while (tmp->prev != NULL) {
-		tmp = left_p->prev;
+	while (tmp != NULL) {
+		tmp = left_p->next;
 		delete left_p;
 		left_p = tmp;
 	}
 	delete tmp;
-	delete left_p;
-	delete rear_p;
-	delete cursor;
 	
 	left_p=NULL;
 	rear_p=NULL;
 	cursor=NULL;
 	current_size=0;
-
 }
-*/
+
 
 void Deque::push_left(int item) {
 	if (empty()) {
 		Node *node = new Node(item, NULL, NULL);
 		left_p = node;
 		rear_p = node;
-		cursor = left_p;
+		cursor = node;
 	} else {
 		Node *new_left = new Node(item, NULL, left_p);
 		left_p->prev = new_left;
@@ -79,7 +88,7 @@ void Deque::push_right(int item) {
 		Node *node = new Node(item, NULL, NULL);
 		left_p = node;
 		rear_p = node;
-		cursor = rear_p;
+		cursor = node;
 	} else {
 		Node *new_rear = new Node(item, rear_p, NULL);
 		rear_p->next = new_rear;
@@ -208,37 +217,7 @@ void Deque::display() {
 		delete tmp;
 		return;
 	}
-
-
 	return;
-
-	
-	
-
-	/*		
-	string output = "[";
-	if (tmp == NULL) {
-		output += ";]";
-		output += " size=0";
-		output += " cursor=NULL.";
-		cout << output << endl;
-		return;
-	}
-	
-	while ((tmp != NULL) || (tmp->prev != NULL)) {
-		output += tmp -> data;
-		output += "; ";
-		tmp = tmp->prev;
-	}
-	output += tmp -> data;
-	output += ";]" ;
-	output += " size=" ;
-	output += current_size;
-	output += " cursor=";
-	output += cursor->data; 
-	output += ".";
-	cout << output << endl;
-	*/
 }
 
 void Deque::verbose_display() {
