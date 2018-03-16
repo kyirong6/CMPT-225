@@ -190,18 +190,15 @@ void Deque::set_cursor(int i) {
 }
 
 void Deque::display() {
-
 	Node * tmp = left_p;
 
 	if (tmp == NULL) {
 		cout << "[] size=0, cursor=NULL." << endl;
 		delete tmp;
 		return;
-	}
-
-	else {
+	} else {
 		string output = "[";
-		while ((tmp != NULL)) {
+		while (tmp != NULL) {
 			output += to_string(tmp->data);
 			output += ";";
 			tmp = tmp->next;
@@ -217,14 +214,38 @@ void Deque::display() {
 		delete tmp;
 		return;
 	}
-	return;
 }
 
 void Deque::verbose_display() {
-	if (empty()) {
-		cout << "Empty!" << endl;
+	Node * tmp = left_p;
+
+	if (tmp == NULL) {
+		cout << "[] size=0, cursor=NULL" << endl;
+		delete tmp;
+		return;
 	} else {
-		
+		cout << "---- front ----" << endl;
+		while (tmp != NULL) {
+			cout << to_string(tmp->data) << ", node address: " << tmp << ", pointer value: " << tmp << "." << endl;
+			tmp = tmp->next;
+//			output += ", addres: ";
+//			output += tmp;
+//			output += ", pointer value: ";
+//			output += *tmp;
+//			output += ";";
+		}
+		cout << "---- rear ----" << endl;
+		cout << "size = " << to_string(current_size) << ", cursor = " << to_string(cursor->data) << endl;
+//		output += "]";
+//		output += " size=";
+//		output += to_string(current_size);
+//		output += ", ";
+//		output += "cursor=";
+//		output += to_string(cursor->data);
+//		output += ".";
+//		cout << output << endl;
+		delete tmp;
+		return;
 	}
 }
 

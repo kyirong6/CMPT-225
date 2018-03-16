@@ -23,18 +23,20 @@ int main (int argc, char * const argv[]) {
     dq1.cursor_left();
     dq1.cursor_left();
     dq1.cursor_left();
-    dq1.display();
+    dq1.verbose_display();
+
 
     // Make a copy
     Deque dq2(dq1);
-    dq1.display();
+    dq1.verbose_display();
+
     // Modify the original and the copy differently;
     dq1.cursor_left();
     dq1.set_cursor(8);
     dq2.cursor_right();
     dq2.set_cursor(9);
-    dq1.display();
-    dq2.display();
+    dq1.verbose_display();
+    dq2.verbose_display();
 
     // Make a Deque
     Deque * dq3 = new Deque();
@@ -47,19 +49,19 @@ int main (int argc, char * const argv[]) {
     dq3->push_left(5);
     dq3->cursor_left();
     dq3->cursor_left();
-    dq3->display();
+    dq3->verbose_display();
  
     // Make a copy
     Deque * dq4 = new Deque(*dq3);
-    dq4->display();
+    dq4->verbose_display();
 
     // Modify the original and the copy differently;
     dq3->cursor_left();
     dq3->set_cursor(8);
     dq4->cursor_right();
     dq4->set_cursor(9);
-    dq3->display();
-    dq4->display();
+    dq3->verbose_display();
+    dq4->verbose_display();
 
     return 0;
 }
