@@ -22,8 +22,6 @@ arr[] = 64 25 12 22 11
 11 12 22 25 64 
 
 
-
-
 void selectionSort(int arr[], int n)
 {
     int i, j, min_idx;
@@ -41,3 +39,6 @@ void selectionSort(int arr[], int n)
         swap(&arr[min_idx], &arr[i]);
     }
 }
+
+Complexity:
+	O(n^2)
